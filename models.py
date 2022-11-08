@@ -16,6 +16,7 @@ class AutoregressiveLinear(torch.nn.Module):
     inputs = torch.squeeze(inputs, axis=-1)
     out = torch.matmul(inputs, (self.mask * self.W).T) + self.b
     return out.reshape(batch_size, seq_len, 1)
+    #change
 
 
 class AutoregressiveLSTM(torch.nn.Module):
