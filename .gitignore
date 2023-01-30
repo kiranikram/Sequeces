@@ -130,3 +130,6 @@ dmypy.json
 
 seq_venv/
 
+pd-venv/
+data/
+
