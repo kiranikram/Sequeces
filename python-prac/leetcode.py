@@ -134,3 +134,30 @@ def areNumbersAscending(self, s: str) -> bool:
                     previous_number = int(w)
 
         return True
+
+def islandPerimeter(self, grid: List[List[int]]) -> int:
+        tp , bp , lp , rp = 0 , 0 , 0 , 0
+        rows = len(grid)
+        cols = len(grid[0])
+        for row in range(rows):
+            for cube in range(cols): 
+                if grid[row][cube] == 1:
+                #check top
+                    if row == 0 or grid[row-1][cube] == 0: 
+                        tp +=1
+
+                #check right
+                    if cube == cols -1 or grid[row][cube+1] == 0:
+                        rp += 1
+
+                #check left
+                    if cube == 0 or grid[row][cube-1] ==0:
+                        lp +=1
+
+                #check bottom
+                    if row == rows - 1 or grid[row+1][cube] == 0:
+                        bp += 1
+
+        p = tp + bp + lp + rp
+
+        return p
