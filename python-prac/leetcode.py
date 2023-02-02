@@ -74,3 +74,63 @@ def reverseWords(self, s: str) -> str:
         new_s = new_s[:-1]
 
         return new_s
+
+from collections import Counter
+def create_note(ransomNote,magazine):
+
+    m = collections.Counter(magazine)
+    for letter in ransomNote:
+        if m[letter] != 0 and letter in m:
+            m[letter] -= 1
+        else:
+            return False
+
+def mySqrt(self, x: int) -> int:
+    """start a while loop, find mid 
+    """
+        low = 0 
+        high = x 
+
+        while low <= high:
+            mid = (low+high)//2
+
+            if (mid * mid) > x:
+                high = mid -1
+            elif (mid * mid) < x:
+                low = mid + 1
+
+            else:
+                return mid 
+
+        return high
+
+s = "1 box has 3 blue 4 red 6 green and 12 yellow marbles"
+
+def areNumbersAscending(s: str) -> bool:
+        
+
+        str_numbers = []
+        new = s.split()
+        for i in range(len(new)):
+            if new[i] != " ":
+                if new[i].isdigit():
+                    str_numbers.append(int(new[i]))
+                    print(str_numbers)
+
+        print("ok", set(sorted(str_numbers)))
+        if str_numbers == list(set(sorted(str_numbers))):
+            print('yes')
+            return True
+
+def areNumbersAscending(self, s: str) -> bool:
+        previous_number = 0
+
+        list_s = s.split()
+        for w in list_s:
+            if w.isnumeric():
+                if previous_number >= int(w):
+                    return False
+                else:
+                    previous_number = int(w)
+
+        return True
