@@ -161,3 +161,45 @@ def islandPerimeter(self, grid: List[List[int]]) -> int:
         p = tp + bp + lp + rp
 
         return p
+
+
+def findlength(a: str, b: str) -> int:
+        a_l = [ord(chr) for chr in a]
+        b_l = [ord(chr) for chr in b]
+
+        idx = 0
+
+        a_l = sorted(a_l)
+        b_l = sorted(b_l)
+        print(a_l,b_l)
+        for i,j in zip(a_l,b_l):
+            if i == j:
+                idx += 1
+            else:
+                break
+        print(idx, len(a_l))
+        if idx == len(a_l) and idx == len(b_l):
+            print(idx, a_l, b_l)
+            return -1
+        if idx > 0:
+            return max((len(a_l)-idx),(len(b_l)-idx))
+    
+        else:
+            return max(len(a_l), len(b_l))
+
+def calPoints(operations) -> int:
+        stack = []
+        for i in operations:
+            if i == "C":
+                stack.pop()
+            elif i == "D":
+                stack.append(stack[-1] * 2)
+
+            elif i == "+":
+                stack.append(stack[-1] + stack[-2])
+
+            else:
+                print(int(i))
+                stack.append(int(i))
+
+        return sum(stack)
